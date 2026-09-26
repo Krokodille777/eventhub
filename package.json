@@ -9,7 +9,7 @@
         "lint": "turbo run lint",
         "typecheck": "turbo run typecheck",
         "contracts": "turbo run build --filter-@eventhub/contracts",
-        "mock": "prism mock packages/contracts/openapi.yaml --port 4000"
+        "mock": "prism mock packages/contracts/openapi.yaml --port 4010"
     },
     "devDependencies": {
         "@stoplight/prism-cli": "^5.16.0",
