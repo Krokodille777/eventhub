@@ -1,6 +1,7 @@
 packages: 
   - "eventhub/apps/*"
   - "eventhub/packages/*"
+  - "packages/*"
 
 engineStrict: true
 

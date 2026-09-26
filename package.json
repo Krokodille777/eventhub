@@ -8,7 +8,7 @@
         "build": "turbo run build",
         "lint": "turbo run lint",
         "typecheck": "turbo run typecheck",
-        "contracts": "turbo run build --filter-@eventhub/contracts",
+        "contracts": "turbo run build --filter=@eventhub/contracts",
         "mock": "prism mock packages/contracts/openapi.yaml --port 4010"
     },
     "devDependencies": {
