@@ -1,3 +1,0 @@
-$ openapi-typescript ./openapi.yaml -o ./src/generated/schema.d.ts
-✨ openapi-typescript 7.13.0
-🚀 ./openapi.yaml → ./src/generated/schema.d.ts [63.3ms]
