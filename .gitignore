@@ -1,2 +1,5 @@
 # Installed dependencies
 node_modules/
+
+# Turborepo cache and logs
+.turbo/

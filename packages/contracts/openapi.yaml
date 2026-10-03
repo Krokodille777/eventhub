@@ -14,7 +14,7 @@ servers:
 paths:
   /events:
     get:
-      operationID: listEvents
+      operationId: listEvents
       summary: Список подій із курсорною пагінацією
       tags: [catalog]
       parameters:
@@ -46,33 +46,32 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/EventPage"
-                examples:
-                  filled: 
-                    summary: "Сторінка подій"
-                    value:
-                      items:
-                        - id: 018f2c1e-4a7b-7c3d-9e1f-2a5b6c7d8e9f
-                          title: Симфонічний вечір
-                          startsAt: "2026-10-12T19:00:00Z"
-                          venue:
-                            id: 018f2c1e-0000-7c3d-9e1f-2a5b6c7d8e00
-                            name: Філармонія
-                            city: Вінниця
-                          minPrice: { amount: 25000, currency: UAH }
-                          availableSeats: 143
-                        - id: 018f2c1e-4a7b-7c3d-9e1f-2a5b6c7d8ea0
-                          title: Джазовий квартет
-                          startsAt: "2026-10-19T20:00:00Z"
-                          venue:
-                            id: 018f2c1e-0000-7c3d-9e1f-2a5b6c7d8e01
-                            name: Клуб «Підвал»
-                            city: Вінниця
-                          minPrice: { amount: 18000, currency: UAH }
-                          availableSeats: 12
-                          nextCursor: "MjAyNi0xMC0xOVQyMDowMDowMFo"
-                      nextCursor: "MjAyNi0xMC0xOVQyMDowMDowMFo"
-                    
-                  empty:
+              examples:
+                filled:
+                  summary: "Сторінка подій"
+                  value:
+                    items:
+                      - id: 018f2c1e-4a7b-7c3d-9e1f-2a5b6c7d8e9f
+                        title: Симфонічний вечір
+                        startsAt: "2026-10-12T19:00:00Z"
+                        venue:
+                          id: 018f2c1e-0000-7c3d-9e1f-2a5b6c7d8e00
+                          name: Філармонія
+                          city: Вінниця
+                        minPrice: { amount: 25000, currency: UAH }
+                        availableSeats: 143
+                      - id: 018f2c1e-4a7b-7c3d-9e1f-2a5b6c7d8ea0
+                        title: Джазовий квартет
+                        startsAt: "2026-10-19T20:00:00Z"
+                        venue:
+                          id: 018f2c1e-0000-7c3d-9e1f-2a5b6c7d8e01
+                          name: Клуб «Підвал»
+                          city: Вінниця
+                        minPrice: { amount: 18000, currency: UAH }
+                        availableSeats: 12
+                    nextCursor: "MjAyNi0xMC0xOVQyMDowMDowMFo"
+
+                empty:
                   summary: Порожній каталог
                   value:
                     items: []
