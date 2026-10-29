@@ -11,7 +11,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
 
-    "outDir": "dist",
+    "outDir": "./dist",
     "baseUrl": "./",
     "noEmit": false,
     "declaration": false,
