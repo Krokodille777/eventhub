@@ -1,7 +1,4 @@
-export type { paths, components} from "./generated/schema";
-
-import type { components } from "./generated/schema";
-
+import type {paths, components} from "./generated/schema";
 
 export type Event = components["schemas"]["Event"]
 export type EventList = components["schemas"]["EventPage"]

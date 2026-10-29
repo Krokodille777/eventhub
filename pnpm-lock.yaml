@@ -23,6 +23,9 @@ importers:
 
   eventhub/apps/api-gateway:
     dependencies:
+      '@eventhub/contracts':
+        specifier: workspace:*
+        version: link:../../../packages/contracts
       '@nestjs/common':
         specifier: ^11.1.0
         version: 11.2.6(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@10.2.2)
