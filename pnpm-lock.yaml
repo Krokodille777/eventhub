@@ -21,11 +21,11 @@ importers:
         specifier: 5.9.3
         version: 5.9.3
 
-  eventhub/apps/api-gateway:
+  apps/api-gateway:
     dependencies:
       '@eventhub/contracts':
         specifier: workspace:*
-        version: link:../../../packages/contracts
+        version: link:../../packages/contracts
       '@nestjs/common':
         specifier: ^11.1.0
         version: 11.2.6(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@10.2.2)
@@ -58,11 +58,11 @@ importers:
         specifier: 5.9.3
         version: 5.9.3
 
-  eventhub/apps/web:
+  apps/web:
     dependencies:
       '@eventhub/contracts':
         specifier: workspace:*
-        version: link:../../../packages/contracts
+        version: link:../../packages/contracts
       openapi-fetch:
         specifier: ^0.17.0
         version: 0.17.0
@@ -92,7 +92,7 @@ importers:
         specifier: ^6.4.0
         version: 6.4.3(@types/node@24.13.6)(terser@5.51.2)
 
-  eventhub/packages/config:
+  packages/config:
     devDependencies:
       '@eslint/js':
         specifier: ^10.0.0
@@ -3811,7 +3811,7 @@ snapshots:
 
   '@stoplight/types@14.1.0':
     dependencies:
-      '@types/json-schema': 7.0.11
+      '@types/json-schema': 7.0.15
       utility-types: 3.11.0
 
   '@stoplight/types@14.1.1':
@@ -5095,7 +5095,7 @@ snapshots:
 
   mkdirp@0.5.6:
     dependencies:
-      minimist: 1.2.6
+      minimist: 1.2.8
 
   ms@2.1.3: {}
 

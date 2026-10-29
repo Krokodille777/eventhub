@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.eventIdParam = exports.listEventsOuery = void 0;
-var zod_1 = require("zod");
-var uuidLike = zod_1.z
+const zod_1 = require("zod");
+const uuidLike = zod_1.z
     .string()
     .regex(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i, "Очікується ідентифікатор у форматі UUID");
 exports.listEventsOuery = zod_1.z.object({
@@ -14,3 +14,4 @@ exports.listEventsOuery = zod_1.z.object({
 exports.eventIdParam = zod_1.z.object({
     eventId: uuidLike,
 });
+//# sourceMappingURL=schemas.js.map
