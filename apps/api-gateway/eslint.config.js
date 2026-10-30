@@ -5,6 +5,10 @@ export default [
   {
     files: ["src/**/*.ts"],
     languageOptions: {
+      parserOptions: {
+        emitDecoratorMetadata: true,
+        experimentalDecorators: true,
+      },
       globals: {
         process: "readonly",
         console: "readonly",

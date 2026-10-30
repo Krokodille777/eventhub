@@ -1,0 +1,11 @@
+import { Module } from '@nestjs/common';
+import { CatalogController } from './catalog.controller';
+import { CatalogService } from './catalog.services';
+import { EventRepository } from './event.repository';
+
+@Module ({
+    controllers: [CatalogController],
+    providers: [CatalogService, EventRepository],
+    exports: [CatalogService, EventRepository]
+})
+export class CatalogModule{}
