@@ -10,3 +10,15 @@ export class EventNotFound extends DomainError {
         super(`Event with id ${eventid} not found`);
     }
 }
+
+export interface ValidationIssue{
+    field: string;
+    code: string;
+    message: string;
+}
+
+export class RequestValidationFailed extends DomainError{
+    constructor(readonly issues: ValidationIssue[]){
+        super("Request validation failed");
+    }
+}

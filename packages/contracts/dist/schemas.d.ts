@@ -1,5 +1,5 @@
 import { z } from "zod";
-export declare const listEventsOuery: z.ZodObject<{
+export declare const listEventsQuery: z.ZodObject<{
     city: z.ZodOptional<z.ZodString>;
     from: z.ZodOptional<z.ZodString>;
     cursor: z.ZodOptional<z.ZodString>;
@@ -15,7 +15,7 @@ export declare const listEventsOuery: z.ZodObject<{
     cursor?: string | undefined;
     limit?: number | undefined;
 }>;
-export type ListEventsQuery = z.infer<typeof listEventsOuery>;
+export type ListEventsQuery = z.infer<typeof listEventsQuery>;
 export declare const eventIdParam: z.ZodObject<{
     eventId: z.ZodString;
 }, "strip", z.ZodTypeAny, {

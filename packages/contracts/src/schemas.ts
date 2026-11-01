@@ -7,14 +7,14 @@ const uuidLike = z
     "Очікується ідентифікатор у форматі UUID",
 );
 
-export const listEventsOuery = z.object({
+export const listEventsQuery = z.object({
     city: z.string().trim().min(1).optional(),
     from: z.string().date().optional(),
     cursor: z.string().min(1).optional(),
     limit: z.coerce.number().int().min(1). max(50).default(20),
 });
 
-export type ListEventsQuery = z.infer<typeof listEventsOuery>;
+export type ListEventsQuery = z.infer<typeof listEventsQuery>;
 
 export const eventIdParam = z.object({
     eventId: uuidLike,
