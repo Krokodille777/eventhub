@@ -22,3 +22,9 @@ export class RequestValidationFailed extends DomainError{
         super("Request validation failed");
     }
 }
+
+export class InvalidCursor extends DomainError {
+    constructor (readonly raw: string){
+        super("Invalid pagination cursor: " + raw);
+    }
+}
