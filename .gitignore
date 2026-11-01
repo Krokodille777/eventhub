@@ -1,5 +1,20 @@
-# Installed dependencies
+# залежності
 node_modules/
 
-# Turborepo cache and logs
+# результати збірки
+dist/
+build/
 .turbo/
+
+# оточення — секрети НІКОЛИ не потрапляють у git
+.env
+.env.*
+!.env.example
+
+# редактори й ОС
+.DS_Store
+.idea/
+*.swp
+
+# тести
+coverage/
