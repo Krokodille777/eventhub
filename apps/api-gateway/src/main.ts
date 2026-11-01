@@ -1,11 +1,13 @@
 import "reflect-metadata";
 import { NestFactory } from "@nestjs/core";
 import { Logger } from "@nestjs/common";
+import { Logger as PinoLogger } from "nestjs-pino";
 import { AppModule } from "./app.module";
 import { ZodValidationPipe } from "./common/validation/zod-validation.pipe";
 
 async function bootstrap(): Promise<void> {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { bufferLogs: true });
+  app.useLogger(app.get(PinoLogger));
   app.useGlobalPipes(new ZodValidationPipe());
   // Дозволяємо запити з dev-сервера Vite.
   // У тижні 14 це значення прийде з оточення продакшн-сервера.
