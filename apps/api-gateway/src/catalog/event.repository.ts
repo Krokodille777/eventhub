@@ -34,7 +34,7 @@ export class EventRepository{
             (e) => e.startsAt > startsAt || (e.startsAt === startsAt && e.id > id),
             );
         }
-        return rows.slice(0, params.limit);
+        return rows.slice(0, params.limit + 1);
     }
     async byId(id:string): Promise<Event | undefined>{
         return this.events.find((e) => e.id === id);
