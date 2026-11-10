@@ -5,6 +5,7 @@ import { APP_FILTER } from "@nestjs/core";
 import { ProblemFilter } from "./common/problem/problem.filter";
 import { randomUUID } from "node:crypto";
 import { LoggerModule } from "nestjs-pino";
+import { PrismaModule } from "./prisma/prisma.module";
 
 const LOG_LEVEL = process.env.LOG_LEVEL ?? "info";
 const NODE_ENV = process.env.NODE_ENV ?? "development";
@@ -31,7 +32,7 @@ const NODE_ENV = process.env.NODE_ENV ?? "development";
           : undefined,
     },
   }),
-    HealthModule, CatalogModule],
+    HealthModule, PrismaModule, CatalogModule],
   providers: [
     {provide: APP_FILTER, useClass: ProblemFilter}
   ],
