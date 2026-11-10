@@ -2,8 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 import type { Event } from '@eventhub/contracts';
-import {EVENTS} from "./seed";
-
 
 type EventRow = Prisma.EventGetPayload<{
     include: {
