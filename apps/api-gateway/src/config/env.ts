@@ -1,6 +1,6 @@
 import { config as loadDotenv } from "dotenv";
 import { z } from "zod";
-loadDotenv();
+loadDotenv({});
 
 const envSchema = z.object({
   DATABASE_URL: z.string().url(),

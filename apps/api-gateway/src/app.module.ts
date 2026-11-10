@@ -32,7 +32,7 @@ const NODE_ENV = process.env.NODE_ENV ?? "development";
           : undefined,
     },
   }),
-    HealthModule, CatalogModule],
+    HealthModule, PrismaModule, CatalogModule],
   providers: [
     {provide: APP_FILTER, useClass: ProblemFilter}
   ],

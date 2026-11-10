@@ -2,13 +2,16 @@ import { PrismaClient, SeatStatus } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
+const vid = (n: number) => `10000000-0000-7000-8000-${String(n). padStart(12, "0")}`;
+const eid = (n: number) => `20000000-0000-7000-8000-${String(n). padStart(12, "0")}`;
+
 const VENUES = [
-  { id: "018f2c1e-0000-7000-8000-000000000001", name: "Палац мистецтв", city: "Львів" },
-  { id: "018f2c1e-0000-7000-8000-000000000002", name: "Caribbean Club", city: "Київ" },
-  { id: "018f2c1e-0000-7000-8000-000000000003", name: "Atlas", city: "Київ" },
-  { id: "018f2c1e-0000-7000-8000-000000000004", name: "Оперний театр", city: "Одеса" },
-  { id: "018f2c1e-0000-7000-8000-000000000005", name: "Парк Горького", city: "Харків" },
-  { id: "018f2c1e-0000-7000-8000-000000000006", name: "Площа Ринок", city: "Львів" },
+  { id: vid(1), name: "Палац мистецтв", city: "Львів" },
+  { id: vid(2), name: "Caribbean Club", city: "Київ" },
+  { id: vid(3), name: "Atlas", city: "Київ" },
+  { id: vid(4), name: "Оперний театр", city: "Одеса" },
+  { id: vid(5), name: "Парк Горького", city: "Харків" },
+  { id: vid(6), name: "Площа Ринок", city: "Львів" },
 ];
 
 type Layout = { rows: number; perRow: number } | null;
@@ -17,25 +20,25 @@ const EVENTS: Array<{
   id: string; title: string; startsAt: string; venueId: string;
   minPriceCents: number; availableSeats: number; layout: Layout;
 }> = [
-  { id: "018f2c1e-4a7b-7c3d-9e1f-000000000001", title: "Джазовий вечір",
-    startsAt: "2026-10-12T19:00:00Z", venueId: "018f2c1e-0000-7000-8000-000000000001",
+  { id: eid(1), title: "Джазовий вечір",
+    startsAt: "2026-10-12T19:00:00Z", venueId: vid(1),
     minPriceCents: 15000, availableSeats: 50, layout: { rows: 5, perRow: 12 } },   // 60 місць, 50 вільних
-  { id: "018f2c1e-4a7b-7c3d-9e1f-000000000002", title: "Стендап-шоу",
-    startsAt: "2026-10-15T18:30:00Z", venueId: "018f2c1e-0000-7000-8000-000000000002",
+  { id: eid(2), title: "Стендап-шоу",
+    startsAt: "2026-10-15T18:30:00Z", venueId: vid(2),
     minPriceCents: 20000, availableSeats: 100, layout: { rows: 10, perRow: 12 } },
   // дві події з однаковим startsAt — для перевірки курсора
-  { id: "018f2c1e-4a7b-7c3d-9e1f-000000000003", title: "Рок-концерт",
-    startsAt: "2026-10-19T20:00:00Z", venueId: "018f2c1e-0000-7000-8000-000000000003",
+  { id: eid(3), title: "Рок-концерт",
+    startsAt: "2026-10-19T20:00:00Z", venueId: vid(3),
     minPriceCents: 30000, availableSeats: 200, layout: { rows: 20, perRow: 12 } },
-  { id: "018f2c1e-4a7b-7c3d-9e1f-000000000004", title: "Камерний оркестр",
-    startsAt: "2026-10-19T20:00:00Z", venueId: "018f2c1e-0000-7000-8000-000000000004",
+  { id: eid(4), title: "Камерний оркестр",
+    startsAt: "2026-10-19T20:00:00Z", venueId: vid(4),
     minPriceCents: 25000, availableSeats: 150, layout: { rows: 15, perRow: 12 } },
   // без нумерованих місць — availableSeats = місткість
-  { id: "018f2c1e-4a7b-7c3d-9e1f-000000000005", title: "Кінопоказ просто неба",
-    startsAt: "2026-10-24T17:00:00Z", venueId: "018f2c1e-0000-7000-8000-000000000005",
+  { id: eid(5), title: "Кінопоказ просто неба",
+    startsAt: "2026-10-24T17:00:00Z", venueId: vid(5),
     minPriceCents: 10000, availableSeats: 300, layout: null },
-  { id: "018f2c1e-4a7b-7c3d-9e1f-000000000006", title: "Фестиваль кави",
-    startsAt: "2026-11-02T10:00:00Z", venueId: "018f2c1e-0000-7000-8000-000000000006",
+  { id: eid(6), title: "Фестиваль кави",
+    startsAt: "2026-11-02T10:00:00Z", venueId: vid(6),
     minPriceCents: 5000, availableSeats: 500, layout: null },
 ];
 

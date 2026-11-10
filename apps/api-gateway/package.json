@@ -11,7 +11,8 @@
     "db:migrate": "prisma migrate dev",
     "db:deploy": "prisma migrate deploy",
     "db:reset": "prisma migrate reset --force",
-    "db:seed": "tsx prisma/seed.ts"
+    "db:seed": "tsx prisma/seed.ts",
+    "db:bench": "tsx prisma/bench.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
@@ -33,7 +34,7 @@
     "@nestjs/cli": "^11.0.24",
     "@nestjs/schematics": "^11.1.0",
     "@types/express": "^5.0.6",
-    "@types/node": "^24.0.0",
+    "@types/node": "^24.13.6",
     "eslint": "^10.0.0",
     "pino-pretty": "^13.2.0",
     "prisma": "^6.19.3",

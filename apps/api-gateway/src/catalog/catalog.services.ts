@@ -22,7 +22,7 @@ export class CatalogService {
   }
 
   async getOne(eventId: string): Promise<Event> {
-    const event = await this.repo.byId(eventId);
+    const event = await this.repo.findById(eventId);
     if (!event) throw new EventNotFound(eventId);
     return event;
   };
