@@ -18,7 +18,7 @@ export async function fetchEvents(
         },
     },
 });
-  if (error) throw new Error("Failed to fetch events");
+  if (error) throw error; // TanStack Query бачить лише викинуту помилку
   return data;
 }
 

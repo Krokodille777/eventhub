@@ -72,3 +72,135 @@ body {
 [role="alert"] {
   color: var(--accent);
 }
+
+.skeleton-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 0;
+}
+
+.skeleton-line {
+  height: 14px;
+  width: 70%;
+  border-radius: 4px;
+  background: #e5e7eb;
+  animation: skeleton-pulse 1.2s ease-in-out infinite;
+}
+
+.skeleton-line--title { height: 18px; width: 45%; }
+.skeleton-line--short { width: 25%; }
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.45; }
+}
+
+/* we respect user preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-line { animation: none; }
+}
+
+
+.state {
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+}
+.state--error {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+.state--empty {
+  background: #f9fafb;
+  color: #4b5563;
+  border: 1px dashed #d1d5db;
+}
+
+/* Фільтри каталогу */
+.filters {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+}
+
+.filters__cities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filters button,
+.load-more,
+.state button {
+  font: inherit;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.filters button[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+.filters__date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted);
+}
+
+.filters__date input {
+  font: inherit;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 0.375rem;
+}
+
+.filters__reset {
+  color: var(--accent) !important;
+}
+
+.event-list a {
+  color: inherit;
+}
+
+.load-more {
+  display: block;
+  margin: 1.5rem auto 0;
+}
+
+.load-more:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+/* Сторінка події */
+.event-page {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+}
+
+.event-page__back {
+  color: var(--muted);
+}
+
+.event-page h2 {
+  margin: 1rem 0 0.25rem;
+}
+
+.event-page__meta {
+  margin-top: 0;
+  color: var(--muted);
+}
