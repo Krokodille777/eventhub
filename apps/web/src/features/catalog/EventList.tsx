@@ -1,33 +1,26 @@
-import { useEffect, useState} from "react";
-import type { Event } from "@eventhub/contracts";
-import {api} from "../../api/client";
+import { useQuery } from "@tanstack/react-query";
+import {fetchEvents, type CatalogFilters} from "../../api/queries";
+import { eventKeys } from "../../api/queryKeys";
 
 export function EventList(){
-    const [events, setEvents] = useState<Event[]>([]);
-    const [problem, setProblem] = useState<string | null>(null);
+    const filters: CatalogFilters = {};
 
-    useEffect(() => {
-        api
-        .GET("/events", {params:{query: {limit:20} } })
-        .then (({data, error}) => {
-            if (error){
-                setProblem(error.title);
-                return;
-            }
-            setEvents(data.items);
-        });
-    }, []);
+    const { data, isPending, isError, error} = useQuery({
+        queryKey: eventKeys.list(filters),
+        queryFn: () => fetchEvents(filters),
+    });
 
-    if (problem) return <p role = "alert"> {problem} </p>;
+    if (isPending) return <p>Loading...</p>;
+    if (isError) return <p role = "alert">Failed to load events</p>;
 
     return(
         <ul className = "event-list">
-            {events.map((e) => (
+            {data.items.map((e) => (
                 <li key = {e.id}>
                     <strong>{e.title}</strong> - {e.venue.city},{" "}
                     {new Date(e.startsAt).toLocaleString("uk-UA")}
                     {" · від "}
-                    {/* amount у копійках - ділимо на 10 лише для показу. 
+                    {/* amount у копійках - ділимо на 10 лише для показу.
                     У розрахунках копійки НІКОЛИ не перетворюються
                     на дробові гривні. */}
                     {(e.minPrice.amount / 100).toFixed(2)} грн
